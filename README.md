@@ -65,7 +65,7 @@ belongs_to :user
 
 ### association
 ```
-has_many   :images
+has_many   :postimages
 has_many   :likes
 has_many   :comments
 belongs_to :user
