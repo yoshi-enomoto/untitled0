@@ -74,7 +74,7 @@ has_many   :post_tags, dependent: :destroy
 ```
 
 
-## Imagesテーブル
+## PostImagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|string|-gem-|
