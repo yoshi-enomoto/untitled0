@@ -65,7 +65,7 @@ belongs_to :user
 
 ### association
 ```
-has_many   :postimages
+has_many   :images
 has_many   :likes
 has_many   :comments
 belongs_to :user
@@ -74,7 +74,7 @@ has_many   :post_tags, dependent: :destroy
 ```
 
 
-## PostImagesテーブル
+## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|string|-gem-|
@@ -82,7 +82,7 @@ has_many   :post_tags, dependent: :destroy
 
 ### association
 ```
-belongs_to :post
+belongs_to :post, optional: true
 ```
 
 
