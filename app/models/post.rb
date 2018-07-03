@@ -1,8 +1,13 @@
 class Post < ApplicationRecord
-  has_many   :post_images
-  # キャメルで命名しているので、『_』が入ってくる。
+  has_many   :images, dependent: :destroy
+
+  accepts_nested_attributes_for :images, reject_if: :reject_images
 
   validates :title,
             :content,
              presence: true
+
+  def reject_images(attributed)
+    attributed['content'].blank?
+  end
 end
