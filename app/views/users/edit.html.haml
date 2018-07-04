@@ -13,6 +13,10 @@
     = f.label :avatar
     %br/
     = f.file_field :avatar
+  = f.fields_for :profile, @user.profile || Profile.new do |b|
+    .field
+      = b.label :nickname
+      = b.text_field :nickname
   .actions
     = f.submit "Submit"
 
