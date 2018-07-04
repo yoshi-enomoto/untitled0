@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180704030823) do
+ActiveRecord::Schema.define(version: 20180704033951) do
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180704030823) do
     t.text     "content",    limit: 65535, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,4 +49,5 @@ ActiveRecord::Schema.define(version: 20180704030823) do
   end
 
   add_foreign_key "images", "posts"
+  add_foreign_key "posts", "users"
 end
