@@ -27,7 +27,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name,
       :email,
-      :avatar
+      :avatar,
+      profile_attributes: [:id, :nickname]
+      # ここでの『id』は親のidを渡している。理由は更新する時の為（今回の場合、user_idとなる）
     )
   end
 end
