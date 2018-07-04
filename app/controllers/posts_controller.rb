@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post.images.build unless @post.images.present?
+    # 新規投稿時に画像をアップしていなければbuildする。この記述が無いと、編集ページでファイルフォームは表れない。
   end
 
   # POST /posts
