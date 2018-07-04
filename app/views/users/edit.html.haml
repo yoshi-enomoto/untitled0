@@ -1,0 +1,25 @@
+%p#notice= notice
+%h1 Edit
+= form_for @user do |f|
+  .field
+    = f.label :name, "name(necessary)"
+    %br/
+    = f.text_field :name, autofocus: true, require: "true"
+  .field
+    = f.label :email, "email(necessary)"
+    %br/
+    = f.email_field :email, autocomplete: "email", require: "true"
+  .field
+    = f.label :avatar
+    %br/
+    = f.file_field :avatar
+  = f.fields_for :profile, @user.profile || Profile.new do |b|
+    .field
+      = b.label :nickname
+      = b.text_field :nickname
+  .actions
+    = f.submit "Submit"
+
+
+= link_to 'Back', root_path
+= link_to 'Edit', edit_user_path if @user.id == current_user.id

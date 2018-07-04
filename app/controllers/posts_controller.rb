@@ -78,5 +78,6 @@ class PostsController < ApplicationController
         :content,
         images_attributes: [:id, :content]
       )
+      .merge(user_id: current_user.id)
     end
 end
