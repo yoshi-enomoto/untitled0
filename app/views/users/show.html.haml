@@ -1,0 +1,16 @@
+%p#notice= notice
+%h1 User
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Avatar
+  %tbody
+    %tr
+      %td= @user.name
+      %td= @user.email
+      %td= image_tag(@user.avatar.thumb) if @user.avatar.present?
+
+= link_to 'Back', root_path
+= link_to 'Edit', edit_user_path if @user.id == current_user.id
