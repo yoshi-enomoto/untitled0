@@ -82,7 +82,7 @@ has_many   :post_tags, dependent: :destroy
 
 ### association
 ```
-belongs_to :post
+belongs_to :post, optional: true
 ```
 
 
