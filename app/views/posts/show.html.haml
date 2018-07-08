@@ -9,6 +9,11 @@
 %p
   %strong Image:
   = image_tag(@post.images.first.content, style: "width: 200px; height: 200px;") if @post.images.present?
+%p
+  %strong Tag:
+  - @post.tags.each do |tag|
+    = tag.name
+    ,
 
 = link_to 'Edit', edit_post_path(@post)
 |
