@@ -29,9 +29,11 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    tag_list = params[:tag_list]
 
     respond_to do |format|
       if @post.save
+        @post.save_post(tag_list)
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -76,6 +78,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(
         :title,
         :content,
+        :tag_list,
         images_attributes: [:id, :content]
       )
       .merge(user_id: current_user.id)
