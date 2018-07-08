@@ -16,5 +16,11 @@
   .field
     = f.fields_for :images, @post.images.build do |image|
       = image.file_field :content
+  .field
+    Tag
+    %br
+    = text_field_tag :"tag_list[]"
+    = text_field_tag :"tag_list[]"
+    = text_field_tag :"tag_list[]"
   .actions
     = f.submit
