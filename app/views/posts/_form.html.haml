@@ -19,8 +19,8 @@
   .field
     Tag
     %br
-    = text_field_tag :"tag_list[]"
-    = text_field_tag :"tag_list[]"
-    = text_field_tag :"tag_list[]"
+    - 3.times do |i|
+      = text_field_tag :"tag_list[]", @post.tags.pluck(:name)[i]
+      -# 『@post.tags.pluck(:name)[i]』である場合はDBから引き出し、無ければ新規保存可能
   .actions
     = f.submit
