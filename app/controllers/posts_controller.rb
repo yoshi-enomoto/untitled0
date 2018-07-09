@@ -46,8 +46,11 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    tag_list = params[:tag_list]
+
     respond_to do |format|
       if @post.update(post_params)
+        @post.save_post(tag_list)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
